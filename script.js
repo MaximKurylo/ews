@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Код для слайдера портфоліо
     const items = document.querySelectorAll('.portfolio-item');
     const prevButton = document.querySelector('.slider-prev');
     const nextButton = document.querySelector('.slider-next');
@@ -20,6 +21,29 @@ document.addEventListener('DOMContentLoaded', () => {
         showItem(currentIndex);
     });
 
-    // Показуємо перший елемент при завантаженні
     showItem(currentIndex);
+
+    // Код для меню-гамбургера
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        menuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        adjustHeroPadding(); // Оновлюємо відступ герой-секції при зміні стану меню
+    });
+
+    // Функція для динамічного підлаштування відступу герой-секції
+    function adjustHeroPadding() {
+        const header = document.querySelector('header');
+        const hero = document.querySelector('.hero');
+        const headerHeight = header.offsetHeight; // Отримуємо поточну висоту хедера
+        hero.style.paddingTop = `${headerHeight + 20}px`; // Додаємо додатковий відступ 20px
+    }
+
+    // Викликаємо функцію при завантаженні сторінки
+    adjustHeroPadding();
+
+    // Оновлюємо відступ при зміні розміру вікна
+    window.addEventListener('resize', adjustHeroPadding);
 });

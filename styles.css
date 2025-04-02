@@ -24,7 +24,7 @@ h1, h2, h3 {
 header {
     background: #1E2A44;
     color: white;
-    padding: 20px 0;
+    padding: 10px 0;
     position: fixed;
     width: 100%;
     top: 0;
@@ -42,29 +42,35 @@ header .container {
     font-weight: bold;
 }
 
-nav ul {
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.nav-menu ul {
     display: flex;
     list-style: none;
 }
 
-nav ul li {
+.nav-menu ul li {
     margin-left: 30px;
 }
 
-nav ul li a {
+.nav-menu ul li a {
     color: white;
     text-decoration: none;
     font-size: 16px;
 }
 
-nav ul li a:hover {
+.nav-menu ul li a:hover {
     color: #00A3FF;
 }
 
 .cta-button {
     background: #00A3FF;
     color: white;
-    padding: 10px 20px;
+    padding: 8px 16px;
     text-decoration: none;
     border-radius: 5px;
     transition: transform 0.3s;
@@ -79,7 +85,7 @@ nav ul li a:hover {
     background: linear-gradient(135deg, #1E2A44, #00A3FF);
     color: white;
     text-align: center;
-    padding: 150px 0 100px;
+    padding: 120px 0 80px; /* Збільшуємо верхній відступ до 120px, щоб врахувати можливу висоту хедера */
 }
 
 .hero h1 {
@@ -113,6 +119,96 @@ nav ul li a:hover {
 .btn-primary:hover, .btn-secondary:hover {
     opacity: 0.9;
 }
+
+/* Адаптивність для хедера та герой-секції */
+@media (max-width: 768px) {
+    /* Хедер */
+    header {
+        padding: 8px 0;
+    }
+
+    header .container {
+        flex-wrap: wrap;
+        padding: 8px 20px;
+        position: relative;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 20px;
+    }
+
+    .nav-menu {
+        width: 100%;
+        display: none;
+    }
+
+    .nav-menu.active {
+        display: block;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background: #1E2A44;
+        padding: 10px 0;
+    }
+
+    .nav-menu ul li {
+        margin: 8px 0;
+    }
+
+    .nav-menu ul li a {
+        font-size: 14px;
+        display: block;
+        padding: 8px 0;
+    }
+
+    .cta-button {
+        margin-top: 8px;
+        font-size: 12px;
+        padding: 6px 12px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Герой-секція */
+    .hero {
+        padding: 100px 0 50px; /* Збільшуємо верхній відступ до 100px для мобільних */
+    }
+
+    .hero h1 {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 16px;
+        margin-bottom: 20px;
+        padding: 0 10px;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .buttons .btn-secondary, .buttons .btn-primary {
+        font-size: 14px;
+        padding: 10px 20px;
+        width: 80%;
+        margin: 5px 0;
+        text-align: center;
+    }
+}
+
+
 
 /* Послуги */
 .services {
